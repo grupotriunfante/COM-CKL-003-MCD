@@ -1,322 +1,318 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <title>Checklist Diário</title>
-  <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      margin: 30px;
-      background-color: #f8f9fa;
-      color: #333;
-      transition: all 0.3s ease-in-out;
-    }
-    h1 {
-      text-align: center;
-      color: #007bff;
-      font-size: 2.5em;
-      margin-bottom: 20px;
-      animation: fadeIn 1s ease-out;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 20px;
-      background-color: #fff;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      animation: slideIn 1s ease-out;
-    }
-    th, td {
-      border: 1px solid #ccc;
-      padding: 12px;
-      text-align: left;
-      font-size: 14px;
-      transition: all 0.3s ease-in-out;
-    }
-    th {
-      background-color: #e9ecef;
-      color: #007bff;
-    }
-    td:hover {
-      background-color: #f1f1f1;
-      cursor: pointer;
-    }
-    .form-container {
-      margin-bottom: 20px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      animation: fadeInUp 1s ease-out;
-    }
-    .form-container label {
-      font-size: 14px;
-      margin-right: 10px;
-      color: #333;
-      width: 100%;
-    }
-    .form-container input, .form-container select {
-      padding: 8px;
-      margin-right: 15px;
-      font-size: 14px;
-      border-radius: 4px;
-      border: 1px solid #ccc;
-      transition: border-color 0.3s ease-in-out;
-      margin-bottom: 10px;
-      width: 48%;
-    }
-    .form-container input:focus, .form-container select:focus {
-      border-color: #007bff;
-    }
-    .form-container button {
-      padding: 12px 25px;
-      background-color: #007bff;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 16px;
-      margin-top: 20px;
-      transition: all 0.3s ease-in-out;
-    }
-    .form-container button:hover {
-      background-color: #0056b3;
-      transform: scale(1.05);
-    }
-    @keyframes fadeIn {
-      0% { opacity: 0; transform: translateY(-20px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes slideIn {
-      0% { transform: translateX(-100%); }
-      100% { transform: translateX(0); }
-    }
-    @keyframes fadeInUp {
-      0% { opacity: 0; transform: translateY(30px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-  </style>
+  <meta charset="UTF-8">
+  <title>Checklist Diário</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 30px;
+      background-color: #f8f9fa;
+      color: #333;
+      transition: all 0.3s ease-in-out;
+    }
+    h1 {
+      text-align: center;
+      color: #007bff;
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      animation: fadeIn 1s ease-out;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      animation: slideIn 1s ease-out;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 12px;
+      text-align: left;
+      font-size: 14px;
+      transition: all 0.3s ease-in-out;
+    }
+    th {
+      background-color: #e9ecef;
+      color: #007bff;
+    }
+    td:hover {
+      background-color: #f1f1f1;
+      cursor: pointer;
+    }
+    .form-container {
+      margin-bottom: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      animation: fadeInUp 1s ease-out;
+    }
+    .form-container label {
+      font-size: 14px;
+      margin-right: 10px;
+      color: #333;
+      width: 100%;
+    }
+    .form-container input, .form-container select {
+      padding: 8px;
+      margin-right: 15px;
+      font-size: 14px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      transition: border-color 0.3s ease-in-out;
+      margin-bottom: 10px;
+      width: 48%;
+    }
+    .form-container input:focus, .form-container select:focus {
+      border-color: #007bff;
+    }
+    .form-container button {
+      padding: 12px 25px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 20px;
+      transition: all 0.3s ease-in-out;
+    }
+    .form-container button:hover {
+      background-color: #0056b3;
+      transform: scale(1.05);
+    }
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(-20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideIn {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(0); }
+    }
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
 <body>
 <div style="display: flex; align-items: center; gap: 20px;">
-  <img src="https://i.imgur.com/L55qh7b.png" alt="Logo" style="width: 60px; height: auto;">
-  <img src="https://i.imgur.com/WzaQvTL.png" alt="Logo" style="width: 45px; height: auto;">
-  <h1 style="font-size: 32px; margin: 0;">Checklist de Rotina - Analista de Vendas (Blue Jacket Colgate)</h1>
+  <img src="https://i.imgur.com/L55qh7b.png" alt="Logo" style="width: 60px; height: auto;">
+  <img src="https://i.imgur.com/WzaQvTL.png" alt="Logo" style="width: 45px; height: auto;">
+  <h1 style="font-size: 32px; margin: 0;">Checklist de Rotina - Analista de Vendas (Blue Jacket Colgate)</h1>
 </div>
 <h5>COM-CKL-003-MCD Rev:01</h5>
-<!-- Formulário de informações iniciais -->
 <div class="form-container" style="display: flex; gap: 20px; align-items: center; flex-wrap: wrap;">
-  <div style="flex: 2;">
-    <label for="nome">Nome:</label>
-    <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required style="width: 100%;">
-  </div>
+  <div style="flex: 2;">
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required style="width: 100%;">
+  </div>
 
-  <div style="flex: 1;">
-    <label for="data">Data:</label>
-    <input type="date" id="data" name="data" required style="width: 100%;">
-  </div>
+  <div style="flex: 1;">
+    <label for="data">Data:</label>
+    <input type="date" id="data" name="data" required style="width: 100%;">
+  </div>
 
-  <div style="flex: 1;">
-    <label for="unidade">Unidade:</label>
-    <select id="unidade" name="unidade" required style="width: 100%;">
-      <option value="">Selecione</option>
-      <option value="TCA">TCA</option>
-      <option value="TCV">TCV</option>
-      <option value="ABC">ABC</option>
-      <option value="MCD">MCD</option>
-      <option value="TBL">TBL</option>
-      <option value="TPA">TPA</option>
-      <option value="TBA">TBA</option>
-      <option value="TSJ">TSJ</option>
-      <option value="API">API</option>
-      <option value="TPH">TPH</option>
-      <option value="TCG">TCG</option>
-    </select>
-  </div>
+  <div style="flex: 1;">
+    <label for="unidade">Unidade:</label>
+    <select id="unidade" name="unidade" required style="width: 100%;">
+      <option value="">Selecione</option>
+      <option value="TCA">TCA</option>
+      <option value="TCV">TCV</option>
+      <option value="ABC">ABC</option>
+      <option value="MCD">MCD</option>
+      <option value="TBL">TBL</option>
+      <option value="TPA">TPA</option>
+      <option value="TBA">TBA</option>
+      <option value="TSJ">TSJ</option>
+      <option value="API">API</option>
+      <option value="TPH">TPH</option>
+      <option value="TCG">TCG</option>
+    </select>
+  </div>
 </div>
 
 
 <form id="checklistForm">
-  <table>
-    <thead>
-      <tr>
-        <th>Horário/Evento</th>
-        <th>Atividade</th>
-        <th>Documento de Referência</th>
-        <th>Ferramenta/Maquinario</th>
-        <th>Plano de Reação</th>
-        <th>Sim</th>
-        <th>Não</th>
-      </tr>
-    </thead>
-    <tbody>
-      <script>
-        const atividades = [
-          ["08h00", "Realizar o envio do SELL-OUT Diário","-","E-mail","Acionar Gerente Comercial"],
-          ["08h30", "Realizar os relatóros PEX","-","Excel","Acionar Gerente Comercial"],
-          ["09h00", "Realizar a consulta de mercadorias em trânsito","-","-","Acionar Gerente Comercial"],
-          ["09h30", "Realizar o ajuste de coordenadas","-","-", "Acionar Gerente Comercial"],
-          ["10h00", "Realizar o ajuste de roteiros","-","-", "Acionar Gerente Comercial"],
-          ["11h00", "Realizar o acompanhamento de incentivos","-","-", "Acionar Gerente Comercial"],
-          ["13h30", "Realizar a informação de lançamentos","-","-", "Acionar Gerente Comercial"],
-          ["14h00", "Realizar a informação das atividades dos Colgates","-","-", "Acionar Gerente Comercial"],
-          ["15h00", "Realizar o ajustes de combos","-","-", "Acionar Gerente Comercial"],
-          ["16h00", "Realizar os ajustes de faixas Colgate (Ranking)","-", "-", "Acionar Gerente Comercial"],
-          ["16h30", "Realizar o acompanhamento do Super Clube","-", "-", "Acionar Gerente Comercial"],
-          ["17h00", "Realizar a Roterização","-", "-", "Acionar Gerente Comercial"],
-          ["17h30", "Realizar o envio das fotos Top Varejistas","-", "-", "Acionar Gerente Comercial"],
-          ["Mensal", "Realizar o controle financeiro Colgate","-", "-", "Acionar Gerente Comercial"],
-          ["Mensal", "Realizar os ajustes de sortimento recomendado pela Colgate","-", "-", "Acionar Gerente Comercial"],
-          ["Mensal", "Realizar a ativação do desconto progressivo","-", "-", "Acionar Gerente Comercial"],
-          ["Mensal", "Realizar as conferências de dados enviados para Neogrid","-", "-", "Acionar Gerente Comercial"],
-          ["Mensal", "Realizar o relatório bussola de oportunidades","-", "Excel", "Acionar Gerente Comercial"],
+  <table>
+    <thead>
+      <tr>
+        <th>Horário/Evento</th>
+        <th>Atividade</th>
+        <th>Documento de Referência</th>
+        <th>Ferramenta/Maquinario</th>
+        <th>Plano de Reação</th>
+        <th>Sim</th>
+        <th>Não</th>
+      </tr>
+    </thead>
+    <tbody>
+      <script>
+        const atividades = [
+          ["08h00", "Realizar o envio do SELL-OUT Diário","-","E-mail","Acionar Gerente Comercial"],
+          ["08h30", "Realizar os relatóros PEX","-","Excel","Acionar Gerente Comercial"],
+          ["09h00", "Realizar a consulta de mercadorias em trânsito","-","-","Acionar Gerente Comercial"],
+          ["09h30", "Realizar o ajuste de coordenadas","-","-", "Acionar Gerente Comercial"],
+          ["10h00", "Realizar o ajuste de roteiros","-","-", "Acionar Gerente Comercial"],
+          ["11h00", "Realizar o acompanhamento de incentivos","-","-", "Acionar Gerente Comercial"],
+          ["13h30", "Realizar a informação de lançamentos","-","-", "Acionar Gerente Comercial"],
+          ["14h00", "Realizar a informação das atividades dos Colgates","-","-", "Acionar Gerente Comercial"],
+          ["15h00", "Realizar o ajustes de combos","-","-", "Acionar Gerente Comercial"],
+          ["16h00", "Realizar os ajustes de faixas Colgate (Ranking)","-", "-", "Acionar Gerente Comercial"],
+          ["16h30", "Realizar o acompanhamento do Super Clube","-", "-", "Acionar Gerente Comercial"],
+          ["17h00", "Realizar a Roterização","-", "-", "Acionar Gerente Comercial"],
+          ["17h30", "Realizar o envio das fotos Top Varejistas","-", "-", "Acionar Gerente Comercial"],
+          ["Mensal", "Realizar o controle financeiro Colgate","-", "-", "Acionar Gerente Comercial"],
+          ["Mensal", "Realizar os ajustes de sortimento recomendado pela Colgate","-", "-", "Acionar Gerente Comercial"],
+          ["Mensal", "Realizar a ativação do desconto progressivo","-", "-", "Acionar Gerente Comercial"],
+          ["Mensal", "Realizar as conferências de dados enviados para Neogrid","-", "-", "Acionar Gerente Comercial"],
+          ["Mensal", "Realizar o relatório bussola de oportunidades","-", "Excel", "Acionar Gerente Comercial"],
 
-          
-        ];
+          
+        ];
 
-        for (let i = 0; i < atividades.length; i++) {
-          document.write(`
-            <tr>
-              <td>${atividades[i][0]}</td>
-              <td>${atividades[i][1]}</td>
-              <td>${atividades[i][2]}</td>
-              <td>${atividades[i][3]}</td>
-              <td>${atividades[i][4]}</td>
-              <td>
-                <input type="checkbox" name="atividade_${i+1}" value="Sim"
-                  onclick="toggleCheckbox(event, this, 'atividade_${i+1}', 'Sim')">
-              </td>
-              <td>
-                <input type="checkbox" name="atividade_${i+1}" value="Não"
-                  onclick="toggleCheckbox(event, this, 'atividade_${i+1}', 'Não')">
-              </td>
-              <input type="hidden" name="hora_atividade_${i+1}">
-              <input type="hidden" name="resposta_atividade_${i+1}">
-            </tr>
-          `);
-        }
-      </script>
-    </tbody>
-  </table>
+        for (let i = 0; i < atividades.length; i++) {
+          document.write(`
+            <tr>
+              <td>${atividades[i][0]}</td>
+              <td>${atividades[i][1]}</td>
+              <td>${atividades[i][2]}</td>
+              <td>${atividades[i][3]}</td>
+              <td>${atividades[i][4]}</td>
+              <td>
+                <input type="checkbox" name="atividade_${i+1}" value="Sim"
+                  onclick="toggleCheckbox(event, this, 'atividade_${i+1}', 'Sim')">
+              </td>
+              <td>
+                <input type="checkbox" name="atividade_${i+1}" value="Não"
+                  onclick="toggleCheckbox(event, this, 'atividade_${i+1}', 'Não')">
+              </td>
+              <input type="hidden" name="hora_atividade_${i+1}">
+              <input type="hidden" name="resposta_atividade_${i+1}">
+            </tr>
+          `);
+        }
+      </script>
+    </tbody>
+  </table>
 
-  <div class="form-container">
-    <button type="submit" id="submitBtn">Enviar</button>
-  </div>
+  <div class="form-container">
+    <button type="submit" id="submitBtn">Enviar</button>
+  </div>
 </form>
 
 <script>
-  let formularioEnviado = false;
+  let formularioEnviado = false;
 
-  window.addEventListener("beforeunload", function (e) {
-    if (!formularioEnviado) {
-      e.preventDefault();
-      e.returnValue = "Você tem certeza que deseja sair? As informações preenchidas serão perdidas.";
-    }
-  });
+  window.addEventListener("beforeunload", function (e) {
+    if (!formularioEnviado) {
+      e.preventDefault();
+      e.returnValue = "Você tem certeza que deseja sair? As informações preenchidas serão perdidas.";
+    }
+  });
 
-  function toggleCheckbox(event, checkbox, nomeAtividade, valorSelecionado) {
-    const checkboxes = document.getElementsByName(nomeAtividade);
-    checkboxes.forEach(c => {
-      if (c !== checkbox) c.checked = false;
-    });
-    const horaCampo = document.querySelector(`[name=hora_${nomeAtividade}]`);
-    const respostaCampo = document.querySelector(`[name=resposta_${nomeAtividade}]`);
-    horaCampo.value = new Date().toLocaleString('pt-BR');
-    respostaCampo.value = valorSelecionado;
-  }
+  function toggleCheckbox(event, checkbox, nomeAtividade, valorSelecionado) {
+    const checkboxes = document.getElementsByName(nomeAtividade);
+    checkboxes.forEach(c => {
+      if (c !== checkbox) c.checked = false;
+    });
+    const horaCampo = document.querySelector(`input[name="hora_${nomeAtividade}"]`);
+    const respostaCampo = document.querySelector(`input[name="resposta_${nomeAtividade}"]`);
+    horaCampo.value = new Date().toLocaleString('pt-BR');
+    respostaCampo.value = valorSelecionado;
+  }
 
-  document.getElementById("checklistForm").addEventListener("submit", function(e) {
-    e.preventDefault();
-    const nome = document.getElementById("nome").value;
-    const data = document.getElementById("data").value;
-    const unidade = document.getElementById("unidade").value;
+  document.getElementById("checklistForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const nome = document.getElementById("nome").value;
+    const data = document.getElementById("data").value;
+    const unidade = document.getElementById("unidade").value;
 
-    if (!nome || !data || !unidade) {
-      alert("Preencha todos os campos obrigatórios.");
-      return;
-    }
+    if (!nome || !data || !unidade) {
+      alert("Preencha todos os campos obrigatórios.");
+      return;
+    }
 
-    let algumaMarcada = false;
-    for (let i = 1; i <= atividades.length; i++) {
-      const resposta = document.querySelector(`[name=resposta_atividade_${i}]`).value;
-      if (resposta === "Sim" || resposta === "Não") {
-        algumaMarcada = true;
-        break;
-      }
-    }
+    let algumaMarcada = false;
+    for (let i = 1; i <= atividades.length; i++) {
+      const respostaCampo = document.querySelector(`input[name="resposta_atividade_${i}"]`);
+      if (respostaCampo && (respostaCampo.value === "Sim" || respostaCampo.value === "Não")) {
+        algumaMarcada = true;
+        break;
+      }
+    }
 
-    if (!algumaMarcada) {
-      alert("Marque pelo menos uma atividade.");
-      return;
-    }
+    if (!algumaMarcada) {
+      alert("Marque pelo menos uma atividade.");
+      return;
+    }
 
-    if (!confirm("Tem certeza que deseja enviar?")) return;
+    if (!confirm("Tem certeza que deseja enviar?")) return;
 
-    const submitBtn = document.getElementById("submitBtn");
-    submitBtn.disabled = true;
-    submitBtn.textContent = "Enviando...";
+    const submitBtn = document.getElementById("submitBtn");
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Enviando...";
 
-    const formData = new FormData(document.getElementById("checklistForm"));
-    formData.append("nome", nome);
-    formData.append("data", data);
-    formData.append("unidade", unidade);
+    const formData = new FormData(document.getElementById("checklistForm"));
+    formData.append("nome", nome);
+    formData.append("data", data);
+    formData.append("unidade", unidade);
 
-    fetch("https://script.google.com/macros/s/AKfycbxFsFeDw5SFwp9sTljN5tzKsEdbMkrFBs51pqNrgDTEtPiKwc-65KMrtvKhDvlRYT4Blg/exec", {
-      method: "POST",
-      body: formData
-    })
-    .then(response => response.text())
-    .then(data => {
-      formularioEnviado = true;
-      alert("Dados enviados com sucesso!");
-      location.reload();
-    })
-    .catch(error => {
-      alert("Erro ao enviar os dados: " + error);
-      submitBtn.disabled = false;
-      submitBtn.textContent = "Enviar";
-    });
-  });
-  
+    fetch("https://script.google.com/macros/s/AKfycbxFsFeDw5SFwp9sTljN5tzKsEdbMkrFBs51pqNrgDTEtPiKwc-65KMrtvKhDvlRYT4Blg/exec", {
+      method: "POST",
+      body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+      formularioEnviado = true;
+      alert("Dados enviados com sucesso!");
+      location.reload();
+    })
+    .catch(error => {
+      alert("Erro ao enviar os dados: " + error);
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Enviar";
+    });
+  });
+  
 </script>
-<!-- Botão de ajuda discreto no final da página -->
 <div style="text-align: center; margin-top: 60px; margin-bottom: 20px;">
-  <a href="mailto:luis.correia@triunfante.com.br,marcelo.portella@triunfante.com.br,raphael.bortot@triunfante.com.br,daniela.nachbar@triunfante.com.br?subject=Ajuda%20-%20Checklist%20Coord%20Adm"
-     style="
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background-color: #f1f1f1;
-      color: #333;
-      padding: 10px 18px;
-      border-radius: 6px;
-      font-size: 15px;
-      text-decoration: none;
-      border: 1px solid #ccc;
-      transition: all 0.3s ease;
-    "
-    onmouseover="this.style.backgroundColor='#e2e2e2'"
-    onmouseout="this.style.backgroundColor='#f1f1f1'">
-    💬 Fale com o suporte
-  </a>
+  <a href="mailto:luis.correia@triunfante.com.br,marcelo.portella@triunfante.com.br,raphael.bortot@triunfante.com.br,daniela.nachbar@triunfante.com.br?subject=Ajuda%20-%20Checklist%20Coord%20Adm"
+     style="
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: #f1f1f1;
+      color: #333;
+      padding: 10px 18px;
+      border-radius: 6px;
+      font-size: 15px;
+      text-decoration: none;
+      border: 1px solid #ccc;
+      transition: all 0.3s ease;
+    "
+    onmouseover="this.style.backgroundColor='#e2e2e2'"
+    onmouseout="this.style.backgroundColor='#f1f1f1'">
+    💬 Fale com o suporte
+  </a>
 </div>
 
 <script>
-  window.onload = function () {
-    const dataInput = document.getElementById("data");
-    const hoje = new Date().toISOString().split("T")[0];
-    dataInput.value = hoje;
-    dataInput.min = hoje;
-    dataInput.max = hoje;
-    dataInput.readOnly = true; // impede que o usuário digite manualmente
-  };
+  window.onload = function () {
+    const dataInput = document.getElementById("data");
+    // Define o fuso horário para Campinas, SP, Brazil (-03:00)
+    const options = { timeZone: 'America/Sao_Paulo' };
+    const hoje = new Date().toLocaleDateString('en-CA', options); // 'en-CA' para obter o formato YYYY-MM-DD
+    dataInput.value = hoje;
+    dataInput.min = hoje;
+    dataInput.max = hoje;
+    dataInput.readOnly = true; // impede que o usuário digite manualmente
+    dataInput.style.pointerEvents = 'none'; // Impede clique no calendário
+    dataInput.style.backgroundColor = '#e9ecef'; // Adiciona um estilo visual de desabilitado
+  };
 </script>
 
-
-
 </body>
-
-
-
-
 </html>
